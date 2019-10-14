@@ -233,7 +233,7 @@ public class ListenerMain extends Engine {
         // ... then we make it drop itself.
         event.setCancelled(true);
         event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(material, 1));
-        event.getBlock().setType(XMaterial.AIR);
+        event.getBlock().setType(XMaterial.AIR.parseMaterial());
     }
 
     // -------------------------------------------- //
