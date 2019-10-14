@@ -4,6 +4,7 @@ import com.massivecraft.massivecore.util.MUtil;
 import com.massivecraft.vampire.InfectionReason;
 import com.massivecraft.vampire.Perm;
 import com.massivecraft.vampire.Vampire;
+import com.massivecraft.vampire.XMaterial;
 import com.massivecraft.vampire.entity.MLang;
 import com.massivecraft.vampire.entity.UPlayer;
 import com.massivecraft.vampire.util.FxUtil;
@@ -23,19 +24,19 @@ public class AltarDark extends Altar
 		this.name = MLang.get().altarDarkName;
 		this.desc = MLang.get().altarDarkDesc;
 		
-		this.coreMaterial = Material.GOLD_BLOCK;
+		this.coreMaterial = XMaterial.GOLD_BLOCK.parseMaterial();
 		
 		this.materialCounts = new HashMap<>();
-		this.materialCounts.put(Material.OBSIDIAN, 30);
-		this.materialCounts.put(Material.WEB, 5);
-		this.materialCounts.put(Material.DEAD_BUSH, 5);
-		this.materialCounts.put(Material.DIAMOND_BLOCK, 2);
+		this.materialCounts.put(XMaterial.OBSIDIAN.parseMaterial(), 30);
+		this.materialCounts.put(XMaterial.COBWEB.parseMaterial(), 5);
+		this.materialCounts.put(XMaterial.DEAD_BUSH.parseMaterial(), 5);
+		this.materialCounts.put(XMaterial.DIAMOND_BLOCK.parseMaterial(), 2);
 		
 		this.resources = MUtil.list(
-			new ItemStack(Material.MUSHROOM_SOUP, 1),
-			new ItemStack(Material.BONE, 10),
-			new ItemStack(Material.SULPHUR, 10),
-			new ItemStack(Material.REDSTONE, 10)
+			new ItemStack(XMaterial.MUSHROOM_STEW.parseMaterial(), 1),
+			new ItemStack(XMaterial.BONE.parseMaterial(), 10),
+			new ItemStack(XMaterial.GUNPOWDER.parseMaterial(), 10),
+			new ItemStack(XMaterial.REDSTONE.parseMaterial(), 10)
 		);
 	}
 	

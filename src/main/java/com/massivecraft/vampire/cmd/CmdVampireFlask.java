@@ -6,6 +6,7 @@ import com.massivecraft.massivecore.command.requirement.RequirementHasPerm;
 import com.massivecraft.massivecore.command.requirement.RequirementIsPlayer;
 import com.massivecraft.vampire.BloodFlaskUtil;
 import com.massivecraft.vampire.Perm;
+import com.massivecraft.vampire.XMaterial;
 import com.massivecraft.vampire.entity.MConf;
 import com.massivecraft.vampire.entity.MLang;
 import com.massivecraft.vampire.type.TypeLimitedDouble;
@@ -28,7 +29,7 @@ public class CmdVampireFlask extends VCommand
 		// Requirements
 		this.addRequirements(RequirementHasPerm.get(Perm.FLASK));
 		this.addRequirements(RequirementIsPlayer.get());
-		this.addRequirements(RequirementHasItemInHand.get(Material.GLASS_BOTTLE));
+		this.addRequirements(RequirementHasItemInHand.get(XMaterial.GLASS_BOTTLE.parseMaterial()));
 	}
 	
 	// -------------------------------------------- //

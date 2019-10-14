@@ -27,7 +27,7 @@ public class BloodFlaskUtil
 	public static ItemStack createBloodFlask(double amount, boolean isVampiric)
 	{
 		// Create a new item stack of material potion ...
-		ItemStack ret = new ItemStack(Material.POTION);
+		ItemStack ret = new ItemStack(XMaterial.POTION.parseMaterial());
 		
 		// ... and convert the isVampiric boolean into a string ...
 		String metaVampiric = isVampiric ? BLOOD_FLASK_VAMPIRIC_TRUE : BLOOD_FLASK_VAMPIRIC_FALSE;
@@ -81,7 +81,7 @@ public class BloodFlaskUtil
 	{
 		ItemStack item = InventoryUtil.getWeapon(player);
 		if (item == null) return;
-		if (item.getType() != Material.GLASS_BOTTLE) return;
+		if (item.getType() != XMaterial.GLASS_BOTTLE.parseMaterial()) return;
 		
 		int amount = item.getAmount();
 		if (amount > 1)

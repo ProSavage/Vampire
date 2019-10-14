@@ -2,6 +2,7 @@ package com.massivecraft.vampire.util;
 
 import com.massivecraft.massivecore.mixin.MixinMessage;
 import com.massivecraft.massivecore.util.Txt;
+import com.massivecraft.vampire.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -78,9 +79,9 @@ public class ResourceUtil
 	
 	public static String describe(Material type, short damage)
 	{
-		if (type == Material.POTION && damage == 0) return "Water Bottle";
-		if (type == Material.INK_SACK && damage == 4 ) return "Lapis Lazuli Dye";
-		if (type == Material.COAL && damage == 1 ) return "Charcoal";
+		if (type == XMaterial.POTION.parseMaterial() && damage == 0) return "Water Bottle";
+		if (type == XMaterial.INK_SAC.parseMaterial() && damage == 4 ) return "Lapis Lazuli Dye";
+		if (type == XMaterial.COAL.parseMaterial() && damage == 1 ) return "Charcoal";
 		
 		return Txt.getMaterialName(type);
 	}

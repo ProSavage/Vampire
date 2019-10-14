@@ -24,7 +24,7 @@ public class HolyWaterUtil
 	
 	public static ItemStack createHolyWater()
 	{
-		ItemStack ret = new ItemStack(Material.SPLASH_POTION);
+		ItemStack ret = new ItemStack(XMaterial.SPLASH_POTION.parseMaterial());
 		
 		PotionMeta meta = (PotionMeta)ret.getItemMeta();
 		meta.setDisplayName(HOLY_WATER_NAME);

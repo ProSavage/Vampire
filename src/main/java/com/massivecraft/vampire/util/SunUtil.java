@@ -1,5 +1,6 @@
 package com.massivecraft.vampire.util;
 
+import com.massivecraft.vampire.XMaterial;
 import com.massivecraft.vampire.entity.UConf;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -85,7 +86,7 @@ public class SunUtil
 		
 		for (int y = block.getY(); y <= maxy && ret < 1d; y++)
 		{
-			int typeId = world.getBlockTypeIdAt(x, y, z);
+			Material material = world.getBlockAt(x, y, z).getType();
 			Double opacity = UConf.get(block).typeIdOpacity.get(typeId);
 			if (opacity == null)
 			{
@@ -116,7 +117,7 @@ public class SunUtil
 		{
 			if (itemStack == null) continue;
 			if (itemStack.getAmount() == 0) continue;
-			if (itemStack.getType() == Material.AIR) continue;
+			if (itemStack.getType() == XMaterial.AIR.parseMaterial()) continue;
 			ret += UConf.get(player).opacityPerArmorPiece;
 		}
 		return ret;

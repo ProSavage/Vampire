@@ -4,6 +4,7 @@ import com.massivecraft.massivecore.collections.BackstringSet;
 import com.massivecraft.massivecore.store.Entity;
 import com.massivecraft.massivecore.util.MUtil;
 import com.massivecraft.vampire.PotionEffectConf;
+import com.massivecraft.vampire.XMaterial;
 import com.massivecraft.vampire.altar.AltarDark;
 import com.massivecraft.vampire.altar.AltarLight;
 import org.bukkit.ChatColor;
@@ -88,10 +89,10 @@ public class UConf extends Entity<UConf>
 	// -------------------------------------------- //
 	
 	public Set<Material> dropSelfMaterials = MUtil.set(
-		Material.WEB,
-		Material.GLOWSTONE,
-		Material.BOOKSHELF,
-		Material.DEAD_BUSH
+		XMaterial.COBWEB.parseMaterial(),
+		XMaterial.GLOWSTONE.parseMaterial(),
+		XMaterial.BOOKSHELF.parseMaterial(),
+		XMaterial.DEAD_BUSH.parseMaterial()
 	);
 	
 	// -------------------------------------------- //
@@ -183,19 +184,17 @@ public class UConf extends Entity<UConf>
 	public int combatWoodDamage = 3*damageDiamondSword;
 	
 	public Set<Material> combatWoodMaterials = MUtil.set(
-		Material.WOOD_AXE,
-		Material.WOOD_HOE,
-		Material.WOOD_PICKAXE,
-		Material.WOOD_SPADE,
-		Material.WOOD_SWORD,
-		Material.STICK,
-		Material.TORCH,
-		Material.REDSTONE_TORCH_OFF,
-		Material.REDSTONE_TORCH_ON,
-		Material.SIGN,
-		Material.SIGN_POST,
-		Material.FENCE,
-		Material.FENCE_GATE
+			XMaterial.WOODEN_SWORD.parseMaterial(),
+			XMaterial.WOODEN_HOE.parseMaterial(),
+			XMaterial.WOODEN_PICKAXE.parseMaterial(),
+			XMaterial.WOODEN_SHOVEL.parseMaterial(),
+		XMaterial.STICK.parseMaterial(),
+		XMaterial.TORCH.parseMaterial(),
+		XMaterial.REDSTONE_TORCH.parseMaterial(),
+		// TODO: I did one kinda sign, since the server is using 1.12, so it should parse to SIGN anyway. However if you move on to 1.14+, someone needs add all kinds of fences etc in.
+		XMaterial.ACACIA_SIGN.parseMaterial(),
+		XMaterial.ACACIA_FENCE.parseMaterial(),
+		XMaterial.ACACIA_FENCE_GATE.parseMaterial()
 	);
 	
 	// -------------------------------------------- //
@@ -268,7 +267,7 @@ public class UConf extends Entity<UConf>
 	
 	public List<ItemStack> holyWaterResources = MUtil.list(
 		new ItemStack(Material.POTION, 1, (short)0),
-		new ItemStack(Material.INK_SACK, 1, (short)4)
+		new ItemStack(XMaterial.INK_SAC.parseMaterial(), 1, (short)4)
 	);
 	
 	// -------------------------------------------- //

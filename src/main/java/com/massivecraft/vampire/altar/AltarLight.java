@@ -5,6 +5,7 @@ import com.massivecraft.massivecore.util.MUtil;
 import com.massivecraft.vampire.HolyWaterUtil;
 import com.massivecraft.vampire.Perm;
 import com.massivecraft.vampire.Vampire;
+import com.massivecraft.vampire.XMaterial;
 import com.massivecraft.vampire.entity.MLang;
 import com.massivecraft.vampire.entity.UConf;
 import com.massivecraft.vampire.entity.UPlayer;
@@ -23,19 +24,19 @@ public class AltarLight extends Altar
 		this.name = MLang.get().altarLightName;
 		this.desc = MLang.get().altarLightDesc;
 		
-		this.coreMaterial = Material.LAPIS_BLOCK;
+		this.coreMaterial = XMaterial.LAPIS_BLOCK.parseMaterial();
 		
 		this.materialCounts = new HashMap<>();
-		this.materialCounts.put(Material.GLOWSTONE, 30);
-		this.materialCounts.put(Material.YELLOW_FLOWER, 5);
-		this.materialCounts.put(Material.RED_ROSE, 5);
-		this.materialCounts.put(Material.DIAMOND_BLOCK, 2);
+		this.materialCounts.put(XMaterial.GLOWSTONE.parseMaterial(), 30);
+		this.materialCounts.put(XMaterial.DANDELION.parseMaterial(), 5);
+		this.materialCounts.put(XMaterial.POPPY.parseMaterial(), 5);
+		this.materialCounts.put(XMaterial.DIAMOND_BLOCK.parseMaterial(), 2);
 		
 		this.resources = MUtil.list(
-			new ItemStack(Material.WATER_BUCKET, 1),
-			new ItemStack(Material.DIAMOND, 1),
-			new ItemStack(Material.SUGAR, 20),
-			new ItemStack(Material.WHEAT, 20)
+			new ItemStack(XMaterial.WATER_BUCKET.parseMaterial(), 1),
+			new ItemStack(XMaterial.DIAMOND.parseMaterial(), 1),
+			new ItemStack(XMaterial.SUGAR.parseMaterial(), 20),
+			new ItemStack(XMaterial.WHEAT.parseMaterial(), 20)
 		);
 	}
 	
@@ -96,7 +97,7 @@ public class AltarLight extends Altar
 	{
 		ItemStack item = InventoryUtil.getWeapon(player);
 		if (item == null) return false;
-		if (item.getType() != Material.POTION) return false;
+		if (item.getType() != XMaterial.POTION.parseMaterial()) return false;
 		return item.getDurability() == 0;
 	}
 	
