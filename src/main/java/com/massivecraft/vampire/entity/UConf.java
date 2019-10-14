@@ -306,17 +306,17 @@ public class UConf extends Entity<UConf>
 	private final static transient Double FENCE = 0.4D;
 	private final static transient Double GLASS = 0.5D;
 	
-	public Map<Integer,Double> typeIdOpacity = MUtil.map(
-		0, AIR, //AIR
+	public Map<Material,Double> materialOpacity = MUtil.map(
+		XMaterial.AIR.parseMaterial(), AIR, //AIR
 		//1, XD, //STONE
 		//2, XD, //GRASS
 		//3, XD, //DIRT
 		//4, XD, //COBBLESTONE
 		//5, XD, //WOOD
-		6, VEGETATION, //SAPLING
+		XMaterial.ACACIA_SAPLING.parseMaterial(), VEGETATION, //SAPLING
 		//7, XD, //BEDROCK
-		8, WATER, //WATER
-		9, WATER, //STATIONARY_WATER
+		XMaterial.WATER.parseMaterial(), WATER, //WATER
+		Material.WATER, WATER, //STATIONARY_WATER
 		//10, XD, //LAVA
 		//11, XD, //STATIONARY_LAVA
 		//12, XD, //SAND
@@ -325,74 +325,78 @@ public class UConf extends Entity<UConf>
 		//15, XD, //IRON_ORE
 		//16, XD, //COAL_ORE
 		//17, XD, //LOG
-		18, VEGETATION, //LEAVES
+		XMaterial.ACACIA_LEAVES.parseMaterial(), VEGETATION, //LEAVES
+		XMaterial.BIRCH_LEAVES.parseMaterial(), VEGETATION, //LEAVES
+		XMaterial.DARK_OAK_LEAVES.parseMaterial(), VEGETATION, //LEAVES
+		XMaterial.JUNGLE_LEAVES.parseMaterial(), VEGETATION, //LEAVES
+		XMaterial.OAK_LEAVES.parseMaterial(), VEGETATION, //LEAVES
+		XMaterial.SPRUCE_LEAVES.parseMaterial(), VEGETATION, //LEAVES
 		//19, XD, //SPONGE
-		20, GLASS, //GLASS
+		XMaterial.GLASS.parseMaterial(), GLASS, //GLASS
 		//21, XD, //LAPIS_ORE
 		//22, XD, //LAPIS_BLOCK
 		//23, XD, //DISPENSER
 		//24, XD, //SANDSTONE
 		//25, XD, //NOTE_BLOCK
 		//26, XD, //BED_BLOCK
-		27, GROUND, //POWERED_RAIL
-		28, GROUND, //DETECTOR_RAIL
+		XMaterial.POWERED_RAIL.parseMaterial(), GROUND, //POWERED_RAIL
+		XMaterial.DETECTOR_RAIL.parseMaterial(), GROUND, //DETECTOR_RAIL
 		//29, XD, //PISTON_STICKY_BASE
-		30, THIN, //WEB
-		31, VEGETATION, //LONG_GRASS
-		32, VEGETATION, //DEAD_BUSH
+		XMaterial.COBWEB.parseMaterial(), THIN, //WEB
+		XMaterial.GRASS.parseMaterial(), VEGETATION, //LONG_GRASS
+		XMaterial.DEAD_BUSH.parseMaterial(), VEGETATION, //DEAD_BUSH
 		//33, XD, //PISTON_BASE
-		34, STICK, //PISTON_EXTENSION
+		XMaterial.PISTON_HEAD.parseMaterial(), STICK, //PISTON_EXTENSION
 		//35, XD, //WOOL
 		//36, XD, //PISTON_MOVING_PIECE
-		37, VEGETATION, //YELLOW_FLOWER
-		38, VEGETATION, //RED_ROSE
-		39, VEGETATION, //BROWN_MUSHROOM
-		40, VEGETATION, //RED_MUSHROOM
+		XMaterial.DANDELION.parseMaterial(), VEGETATION, //YELLOW_FLOWER
+		XMaterial.POPPY.parseMaterial(), VEGETATION, //RED_ROSE
+		XMaterial.MUSHROOM_STEM.parseMaterial(), VEGETATION, //BROWN_MUSHROOM
+		XMaterial.RED_MUSHROOM_BLOCK.parseMaterial(), VEGETATION, //RED_MUSHROOM
 		//41, XD, //GOLD_BLOCK
 		//42, XD, //IRON_BLOCK
 		//43, XD, //DOUBLE_STEP
-		44, SLABS, //STEP
+		XMaterial.SANDSTONE_SLAB.parseMaterial(), SLABS, //STEP
 		//45, XD, //BRICK
 		//46, XD, //TNT
 		//47, XD, //BOOKSHELF
 		//48, XD, //MOSSY_COBBLESTONE
 		//49, XD, //OBSIDIAN
-		50, STICK, //TORCH
-		51, THIN, //FIRE
+		XMaterial.TORCH.parseMaterial(), STICK, //TORCH
+		XMaterial.FIRE.parseMaterial(), THIN, //FIRE
 		//52, XD, //MOB_SPAWNER
-		53, STAIRS, //WOOD_STAIRS
+		XMaterial.ACACIA_STAIRS.parseMaterial(), STAIRS, //WOOD_STAIRS
 		//54, XD, //CHEST
-		55, GROUND, //REDSTONE_WIRE
+		XMaterial.REDSTONE_WIRE.parseMaterial(), GROUND, //REDSTONE_WIRE
 		//56, XD, //DIAMOND_ORE
 		//57, XD, //DIAMOND_BLOCK
 		//58, XD, //WORKBENCH
-		59, VEGETATION, //CROPS
+		XMaterial.WHEAT.parseMaterial(), VEGETATION, //CROPS
 		//60, XD, //SOIL
 		//61, XD, //FURNACE
 		//62, XD, //BURNING_FURNACE
-		63, STICK, //SIGN_POST
-		64, DOOR, //WOODEN_DOOR
-		65, THIN, //LADDER
-		66, GROUND, //RAILS
-		67, STAIRS, //COBBLESTONE_STAIRS
-		68, THIN, //WALL_SIGN
-		69, STICK, //LEVER
-		70, GROUND, //STONE_PLATE
-		71, DOOR, //IRON_DOOR_BLOCK
-		72, GROUND, //WOOD_PLATE
+		XMaterial.OAK_SIGN.parseMaterial(), STICK, //SIGN_POST
+		XMaterial.OAK_DOOR.parseMaterial(), DOOR, //WOODEN_DOOR
+		XMaterial.LADDER.parseMaterial(), THIN, //LADDER
+		XMaterial.RAIL.parseMaterial(), GROUND, //RAILS
+		XMaterial.COBBLESTONE_STAIRS.parseMaterial(), STAIRS, //COBBLESTONE_STAIRS
+		XMaterial.OAK_WALL_SIGN.parseMaterial(), THIN, //WALL_SIGN
+		XMaterial.STICK.parseMaterial(), STICK, //LEVER
+		XMaterial.STONE_PRESSURE_PLATE.parseMaterial(), GROUND, //STONE_PLATE
+		XMaterial.IRON_DOOR.parseMaterial(), DOOR, //IRON_DOOR_BLOCK
+		XMaterial.DARK_OAK_PRESSURE_PLATE.parseMaterial(), GROUND, //WOOD_PLATE
 		//73, XD, //REDSTONE_ORE
 		//74, XD, //GLOWING_REDSTONE_ORE
-		75, STICK, //REDSTONE_TORCH_OFF
-		76, STICK, //REDSTONE_TORCH_ON
-		77, THIN, //STONE_BUTTON
-		78, GROUND, //SNOW
+		XMaterial.REDSTONE_TORCH.parseMaterial(), STICK, //REDSTONE_TORCH_OFF
+		XMaterial.STONE_BUTTON.parseMaterial(), THIN, //STONE_BUTTON
+		XMaterial.SNOW.parseMaterial(), GROUND, //SNOW
 		//79, XD, //ICE
 		//80, XD, //SNOW_BLOCK
 		//81, XD, //CACTUS
 		//82, XD, //CLAY
-		83, VEGETATION, //SUGAR_CANE_BLOCK
+		XMaterial.SUGAR_CANE.parseMaterial(), VEGETATION, //SUGAR_CANE_BLOCK
 		//84, XD, //JUKEBOX
-		85, FENCE, //FENCE
+		XMaterial.OAK_FENCE.parseMaterial(), FENCE, //FENCE
 		//86, XD, //PUMPKIN
 		//87, XD, //NETHERRACK
 		//88, XD, //SOUL_SAND
@@ -400,29 +404,28 @@ public class UConf extends Entity<UConf>
 		//90, XD, //PORTAL
 		//91, XD, //JACK_O_LANTERN
 		//92, XD, //CAKE_BLOCK
-		93, GROUND, //DIODE_BLOCK_OFF
-		94, GROUND, //DIODE_BLOCK_ON
+		XMaterial.REPEATER.parseMaterial(), GROUND, //DIODE_BLOCK_OFF
 		//95, XD, //LOCKED_CHEST
-		96, DOOR, //TRAP_DOOR
+		XMaterial.OAK_TRAPDOOR.parseMaterial(), DOOR, //TRAP_DOOR
 		//97, XD, //MONSTER_EGGS
 		//98, XD, //SMOOTH_BRICK
 		//99, XD, //HUGE_MUSHROOM_1
 		//100, XD, //HUGE_MUSHROOM_2
-		101, FENCE, //IRON_FENCE
-		102, THIN, //THIN_GLASS
+		XMaterial.IRON_BARS.parseMaterial(), FENCE, //IRON_FENCE
+		XMaterial.GLASS_PANE.parseMaterial(), THIN, //THIN_GLASS
 		//103, XD, //MELON_BLOCK
-		104, VEGETATION, //PUMPKIN_STEM
-		105, VEGETATION, //MELON_STEM
-		106, VEGETATION, //VINE
-		107, DOOR, //FENCE_GATE
-		108, STAIRS, //BRICK_STAIRS
-		109, STAIRS, //SMOOTH_STAIRS
+		XMaterial.PUMPKIN_STEM.parseMaterial(), VEGETATION, //PUMPKIN_STEM
+		XMaterial.MELON_STEM.parseMaterial(), VEGETATION, //MELON_STEM
+		XMaterial.VINE.parseMaterial(), VEGETATION, //VINE
+		XMaterial.OAK_FENCE_GATE.parseMaterial(), DOOR, //FENCE_GATE
+		XMaterial.BRICK_STAIRS.parseMaterial(), STAIRS, //BRICK_STAIRS
+		XMaterial.STONE_BRICK_STAIRS.parseMaterial(), STAIRS, //SMOOTH_STAIRS
 		//110, XD, //MYCEL
-		111, VEGETATION, //WATER_LILY
+		XMaterial.LILY_PAD.parseMaterial(), VEGETATION, //WATER_LILY
 		//112, XD, //NETHER_BRICK
-		113, FENCE, //NETHER_FENCE
-		114, STAIRS, //NETHER_BRICK_STAIRS
-		115, VEGETATION //NETHER_WARTS
+		XMaterial.NETHER_BRICK_FENCE.parseMaterial(), FENCE, //NETHER_FENCE
+		XMaterial.NETHER_BRICK_STAIRS.parseMaterial(), STAIRS, //NETHER_BRICK_STAIRS
+		XMaterial.NETHER_WART_BLOCK.parseMaterial(), VEGETATION //NETHER_WARTS
 		//116, XD, //ENCHANTMENT_TABLE
 		//117, XD, //BREWING_STAND
 		//118, XD, //CAULDRON
